@@ -22,6 +22,10 @@
   regression band) enforced in Contracts CI against `devx/wasm_size_budget.json`,
   with digest-recorded baselines and typed `WasmBudgetError` codes in
   `contracts/harpocrates-registry/src/wasm_budget.rs` (#346).
+- Added independent on-chain timestamp claim anchoring (`anchor_timestamp_claim`,
+  `get_timestamp_claim`, `has_independent_timestamp_anchor`) so registry proofs can
+  bind off-chain time attestations to Stellar ledger time and optional RFC 3161
+  commitments without storing tokens or secrets. See `contracts/TIMESTAMP_CLAIMS.md`.
 - Added a dependency pin and lockfile gate (`devx/check_dependency_pins.py`, wired into the release gate): pip requirements must be exactly pinned, npm lockfiles must match their manifests, cargo locks must resolve every workspace dependency, and the Noir toolchain lock must pin concrete compiler versions. See `docs/dependency-pins.md`. Closes #391.
 - Domain-separated proof-cache keys in the backend verifier cache (#373): keys
   are SHA-256 digests over the versioned `harpocrates:verifier-cache:v1` domain
